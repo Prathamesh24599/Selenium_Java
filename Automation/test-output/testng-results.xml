@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="5" total="10" passed="5" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-07-21T14:43:13 IST" name="Default suite" finished-at="2025-07-21T14:44:21 IST" duration-ms="68587">
+    <groups>
+      <group name="negative">
+        <method signature="LoginTest.testFailedLogin(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:pom.pages1.LoginTest@52d239ba]" name="testFailedLogin" class="pom.pages1.LoginTest"/>
+      </group> <!-- negative -->
+      <group name="regression">
+        <method signature="LoginTest.testFailedLogin(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:pom.pages1.LoginTest@52d239ba]" name="testFailedLogin" class="pom.pages1.LoginTest"/>
+      </group> <!-- regression -->
+    </groups>
+    <test started-at="2025-07-21T14:43:13 IST" name="Default test" finished-at="2025-07-21T14:44:21 IST" duration-ms="68587">
+      <class name="pom.pages1.LoginTest">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:43:13 IST" name="setUpClass" finished-at="2025-07-21T14:43:13 IST" duration-ms="18" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:43:13 IST" name="setUp" finished-at="2025-07-21T14:43:16 IST" duration-ms="2633" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testFailedLogin(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:43:16 IST" name="testFailedLogin" description="Test failed login with invalid credentials" data-provider="invalidLoginData" finished-at="2025-07-21T14:43:27 IST" duration-ms="10930" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[invalid]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[user]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Invalid credentials]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFailedLogin -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:43:27 IST" name="tearDown" finished-at="2025-07-21T14:43:28 IST" duration-ms="1100" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testFailedLogin status=SUCCESS method=LoginTest.testFailedLogin(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:pom.pages1.LoginTest@52d239ba] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:43:28 IST" name="setUp" finished-at="2025-07-21T14:43:29 IST" duration-ms="1806" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testFailedLogin(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:43:29 IST" name="testFailedLogin" description="Test failed login with invalid credentials" data-provider="invalidLoginData" finished-at="2025-07-21T14:43:40 IST" duration-ms="10991" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[invalid]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Invalid credentials]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFailedLogin -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:43:40 IST" name="tearDown" finished-at="2025-07-21T14:43:42 IST" duration-ms="1955" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testFailedLogin status=SUCCESS method=LoginTest.testFailedLogin(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:pom.pages1.LoginTest@52d239ba] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:43:42 IST" name="setUp" finished-at="2025-07-21T14:43:44 IST" duration-ms="2037" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testFailedLogin(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:43:44 IST" name="testFailedLogin" description="Test failed login with invalid credentials" data-provider="invalidLoginData" finished-at="2025-07-21T14:43:55 IST" duration-ms="10766" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Invalid credentials]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFailedLogin -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:43:55 IST" name="tearDown" finished-at="2025-07-21T14:43:56 IST" duration-ms="1076" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testFailedLogin status=SUCCESS method=LoginTest.testFailedLogin(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:pom.pages1.LoginTest@52d239ba] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:43:56 IST" name="setUp" finished-at="2025-07-21T14:43:58 IST" duration-ms="1496" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testFailedLogin(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:43:58 IST" name="testFailedLogin" description="Test failed login with invalid credentials" data-provider="invalidLoginData" finished-at="2025-07-21T14:44:08 IST" duration-ms="10691" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Invalid credentials]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFailedLogin -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:44:08 IST" name="tearDown" finished-at="2025-07-21T14:44:09 IST" duration-ms="228" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testFailedLogin status=SUCCESS method=LoginTest.testFailedLogin(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:pom.pages1.LoginTest@52d239ba] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:44:09 IST" name="setUp" finished-at="2025-07-21T14:44:10 IST" duration-ms="1652" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testFailedLogin(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:44:10 IST" name="testFailedLogin" description="Test failed login with invalid credentials" data-provider="invalidLoginData" finished-at="2025-07-21T14:44:21 IST" duration-ms="10756" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[wronguser]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[wrongpass]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Invalid credentials]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFailedLogin -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:44:21 IST" name="tearDown" finished-at="2025-07-21T14:44:21 IST" duration-ms="346" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testFailedLogin status=SUCCESS method=LoginTest.testFailedLogin(java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:pom.pages1.LoginTest@52d239ba] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:pom.pages1.LoginTest@52d239ba]" started-at="2025-07-21T14:44:21 IST" name="tearDownClass" finished-at="2025-07-21T14:44:21 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- pom.pages1.LoginTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
