@@ -4,6 +4,8 @@ import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestResult;
 
+import net.bytebuddy.asm.Advice.Return;
+
 public class InvokeMethodListner implements IInvokedMethodListener{
 	@Override
 	public void beforeInvocation(IInvokedMethod method, ITestResult result) {
@@ -22,13 +24,19 @@ public class InvokeMethodListner implements IInvokedMethodListener{
         System.out.println("----- AFTER INVOCATION ------");
 
         System.out.println("Method Name: " + method.getTestMethod().getMethodName());
-        System.out.println("Test Status: " +
-                switch (result.getStatus()) {
-                    case ITestResult.SUCCESS -> "PASS";
-                    case ITestResult.FAILURE -> "FAIL";
-                    case ITestResult.SKIP -> "SKIP";
-                    default -> "UNKNOWN";
-                });
+        System.out.println("Test Status: " 
+//        +
+//        		switch (result.getStatus()) {
+//                case ITestResult.SUCCESS:
+//                	return "PASS";
+//                case ITestResult.FAILURE:
+//                	return "FAIL";
+//                case ITestResult.SKIP:
+//                	return "SKIP";
+//                default:
+//                	return "UNKNOWN";
+//            }
+        		);
 
         if (result.getThrowable() != null) {
             System.out.println("Error: " + result.getThrowable().getMessage());

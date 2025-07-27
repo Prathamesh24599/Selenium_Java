@@ -1,0 +1,285 @@
+{
+	"chrome": {
+      "defaultOptions": {
+        "args": [
+          "--start-maximized",
+          "--disable-infobars",
+          "--disable-extensions",
+          "--disable-notifications",
+          "--disable-web-security",
+          "--disable-features=VizDisplayCompositor",
+          "--disable-ipc-flooding-protection",
+          "--disable-renderer-backgrounding",
+          "--disable-backgrounding-occluded-windows",
+          "--disable-field-trial-config",
+          "--disable-back-forward-cache",
+          "--disable-features=TranslateUI",
+          "--disable-dev-shm-usage",
+          "--no-sandbox",
+          "--lang=en-US",
+          "--ignore-certificate-errors",
+          "--ignore-ssl-errors",
+          "--ignore-certificate-errors-spki-list",
+          "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        ],
+        "prefs": {
+          "download.default_directory": "./test-output/downloads",
+          "download.prompt_for_download": false,
+          "download.directory_upgrade": true,
+          "safebrowsing.enabled": false,
+          "profile.default_content_settings.popups": 0,
+          "profile.default_content_setting_values.notifications": 2,
+          "profile.default_content_settings.geolocation": 2,
+          "profile.managed_default_content_settings.images": 1,
+          "profile.content_settings.plugin_whitelist.adobe-flash-player": 1,
+          "profile.content_settings.exceptions.plugins.*,*.per_resource.adobe-flash-player": 1,
+          "credentials_enable_service": false,
+          "password_manager_enabled": false,
+          "autofill.profile_enabled": false,
+          "autofill.credit_card_enabled": false
+        },
+        "experimentalOptions": {
+          "useAutomationExtension": false,
+          "excludeSwitches": ["enable-automation"],
+          "detach": true
+        }
+      },
+      "headlessOptions": {
+        "args": [
+          "--headless=new",
+          "--window-size=1920,1080",
+          "--disable-gpu",
+          "--no-sandbox",
+          "--disable-dev-shm-usage",
+          "--disable-software-rasterizer",
+          "--disable-background-timer-throttling",
+          "--disable-renderer-backgrounding",
+          "--disable-features=TranslateUI",
+          "--disable-extensions",
+          "--virtual-time-budget=5000"
+        ]
+      },
+      "mobileEmulation": {
+        "devices": {
+          "iPhone12": {
+            "deviceName": "iPhone 12 Pro",
+            "width": 390,
+            "height": 844,
+            "pixelRatio": 3.0,
+            "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X)"
+          },
+          "iPhone13": {
+            "deviceName": "iPhone 13 Pro Max",
+            "width": 428,
+            "height": 926,
+            "pixelRatio": 3.0,
+            "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X)"
+          },
+          "GalaxyS21": {
+            "deviceName": "Samsung Galaxy S21 Ultra",
+            "width": 384,
+            "height": 854,
+            "pixelRatio": 3.0,
+            "userAgent": "Mozilla/5.0 (Linux; Android 11; SM-G998B)"
+          },
+          "iPadPro": {
+            "deviceName": "iPad Pro",
+            "width": 1024,
+            "height": 1366,
+            "pixelRatio": 2.0,
+            "userAgent": "Mozilla/5.0 (iPad; CPU OS 14_0 like Mac OS X)"
+          },
+          "GalaxyTab": {
+            "deviceName": "Samsung Galaxy Tab S7",
+            "width": 753,
+            "height": 1037,
+            "pixelRatio": 2.0,
+            "userAgent": "Mozilla/5.0 (Linux; Android 10; SM-T870)"
+          }
+        },
+        "customDevices": {
+          "desktop1440": {
+            "width": 1440,
+            "height": 900,
+            "pixelRatio": 1.0
+          },
+          "desktop4K": {
+            "width": 3840,
+            "height": 2160,
+            "pixelRatio": 1.0
+          }
+        }
+      },
+      "performance": {
+        "enableNetworkThrottling": false,
+        "enableCPUThrottling": false,
+        "networkConditions": {
+          "offline": false,
+          "latency": 0,
+          "downloadThroughput": 0,
+          "uploadThroughput": 0
+        }
+      }
+    },
+    "firefox": {
+      "defaultOptions": {
+        "args": [
+          "--start-maximized",
+          "--disable-infobars",
+          "--width=1920",
+          "--height=1080"
+        ],
+        "prefs": {
+          "browser.download.folderList": 2,
+          "browser.download.dir": "./test-output/downloads",
+          "browser.download.useDownloadDir": true,
+          "browser.helperApps.neverAsk.saveToDisk": "application/pdf,application/octet-stream,text/csv,application/zip",
+          "browser.download.manager.showWhenStarting": false,
+          "browser.safebrowsing.enabled": false,
+          "browser.safebrowsing.malware.enabled": false,
+          "browser.tabs.remote.autostart": false,
+          "browser.tabs.remote.autostart.2": false,
+          "dom.webnotifications.enabled": false,
+          "geo.enabled": false,
+          "media.navigator.permission.disabled": true,
+          "network.http.phishy-userpass-length": 255,
+          "security.csp.enable": false,
+          "security.mixed_content.block_active_content": false,
+          "security.mixed_content.block_display_content": false
+        },
+        "profile": {
+          "acceptUntrustedCerts": true,
+          "assumeUntrustedCertIssuer": false
+        }
+      },
+      "headlessOptions": {
+        "args": [
+          "--headless",
+          "--width=1920",
+          "--height=1080",
+          "--disable-gpu"
+        ]
+      }
+    },
+    "edge": {
+      "defaultOptions": {
+        "args": [
+          "--start-maximized",
+          "--disable-infobars",
+          "--disable-extensions",
+          "--disable-plugins",
+          "--disable-images",
+          "--disable-javascript",
+          "--no-sandbox"
+        ],
+        "prefs": {
+          "download.default_directory": "./test-output/downloads",
+          "profile.default_content_settings.popups": 0
+        }
+      },
+      "headlessOptions": {
+        "args": [
+          "--headless",
+          "--window-size=1920,1080",
+          "--disable-gpu"
+        ]
+      }
+    },
+    "safari": {
+      "defaultOptions": {
+        "automaticInspection": true,
+        "automaticProfiling": false,
+        "cleanSession": true
+      },
+      "capabilities": {
+        "safari.cleanSession": true,
+        "safari.popups": false
+      }
+    },
+    "timeouts": {
+      "implicit": 10,
+      "pageLoad": 30,
+      "script": 20,
+      "explicit": {
+        "default": 15,
+        "short": 5,
+        "medium": 10,
+        "long": 30,
+        "veryLong": 60
+      },
+      "pollingInterval": 500,
+      "elementWait": {
+        "clickable": 10,
+        "visible": 15,
+        "present": 5,
+        "invisible": 10,
+        "textToBe": 8,
+        "staleness": 12
+      },
+      "ajaxWait": {
+        "default": 20,
+        "fileUpload": 60,
+        "dataLoad": 30
+      }
+    },
+    "remoteCapabilities": {
+      "common": {
+        "enableVNC": true,
+        "enableVideo": false,
+        "enableLog": true,
+        "screenResolution": "1920x1080x24",
+        "timeZone": "UTC",
+        "sessionTimeout": "5m",
+        "videoName": "test_video.mp4",
+        "logName": "test_log.log"
+      },
+      "browserSpecific": {
+        "chrome": {
+          "version": "latest",
+          "acceptInsecureCerts": true,
+          "pageLoadStrategy": "normal",
+          "unhandledPromptBehavior": "dismiss"
+        },
+        "firefox": {
+          "version": "latest",
+          "acceptInsecureCerts": true,
+          "pageLoadStrategy": "normal",
+          "unhandledPromptBehavior": "dismiss"
+        },
+        "edge": {
+          "version": "latest",
+          "acceptInsecureCerts": true,
+          "pageLoadStrategy": "normal"
+        }
+      },
+      "selenium4": {
+        "se:recordVideo": true,
+        "se:screenResolution": "1920x1080",
+        "se:noVncPort": 7900,
+        "se:vncEnabled": true
+      }
+    },
+    "proxy": {
+      "enabled": false,
+      "type": "MANUAL",
+      "httpProxy": "proxy.company.com:8080",
+      "sslProxy": "proxy.company.com:8080",
+      "ftpProxy": "proxy.company.com:8080",
+      "noProxy": "localhost,127.0.0.1,*.local"
+    },
+    "logging": {
+      "browser": {
+        "level": "INFO",
+        "enabled": true
+      },
+      "driver": {
+        "level": "INFO",
+        "enabled": true
+      },
+      "performance": {
+        "level": "INFO",
+        "enabled": false,
+        "categories": ["Network", "Timeline", "Page"]
+      }
+    }
+}

@@ -1,0 +1,165 @@
+{
+  "environments": {
+    "local": {
+      "baseUrl": "https://bonigarcia.dev/selenium-webdriver-java/login-form.html",
+      "apiBaseUrl": "http://localhost:8080/api",
+      "dbUrl": "jdbc:mysql://localhost:3306/testdb",
+      "features": {
+        "newUI": true,
+        "betaFeatures": true,
+        "debugMode": true
+      }
+    },
+    "dev": {
+      "baseUrl": "https://dev.example.com",
+      "apiBaseUrl": "https://api.dev.example.com",
+      "dbUrl": "jdbc:mysql://dev-db.example.com:3306/devdb",
+      "features": {
+        "newUI": true,
+        "betaFeatures": true,
+        "debugMode": false
+      }
+    },
+    "staging": {
+      "baseUrl": "https://staging.example.com",
+      "apiBaseUrl": "https://api.staging.example.com",
+      "dbUrl": "jdbc:mysql://staging-db.example.com:3306/stagingdb",
+      "features": {
+        "newUI": true,
+        "betaFeatures": false,
+        "debugMode": false
+      }
+    },
+    "uat": {
+      "baseUrl": "https://uat.example.com",
+      "apiBaseUrl": "https://api.uat.example.com",
+      "dbUrl": "jdbc:mysql://uat-db.example.com:3306/uatdb",
+      "features": {
+        "newUI": true,
+        "betaFeatures": false,
+        "debugMode": false
+      }
+    },
+    "prod": {
+      "baseUrl": "https://example.com",
+      "apiBaseUrl": "https://api.example.com",
+      "dbUrl": "jdbc:mysql://prod-db.example.com:3306/proddb",
+      "features": {
+        "newUI": false,
+        "betaFeatures": false,
+        "debugMode": false
+      }
+    }
+  },
+  "endpoints": {
+    "auth": {
+      "login": "/auth/login",
+      "logout": "/auth/logout",
+      "register": "/auth/register",
+      "forgotPassword": "/auth/forgot-password",
+      "resetPassword": "/auth/reset-password",
+      "refreshToken": "/auth/refresh-token"
+    },
+    "user": {
+      "profile": "/user/profile",
+      "settings": "/user/settings",
+      "preferences": "/user/preferences",
+      "avatar": "/user/avatar"
+    },
+    "application": {
+      "dashboard": "/app/dashboard",
+      "reports": "/app/reports",
+      "analytics": "/app/analytics",
+      "admin": "/app/admin",
+      "health": "/health",
+      "version": "/version"
+    },
+    "api": {
+      "users": "/api/v1/users",
+      "products": "/api/v1/products",
+      "orders": "/api/v1/orders",
+      "payments": "/api/v1/payments"
+    }
+  },
+  "testData": {
+    "search": {
+      "defaultSearchTerm": "Selenium",
+      "noResultsSearchTerm": "XYZ123NotFound",
+      "specialCharacterSearch": "@#$%^&*()",
+      "longSearchTerm": "This is a very long search term to test the search functionality with extended text input"
+    },
+    "products": {
+      "defaultProductId": "PRD-1001",
+      "outOfStockProductId": "PRD-9999",
+      "expensiveProductId": "PRD-2001",
+      "cheapProductId": "PRD-0001"
+    },
+    "forms": {
+      "validEmail": "test@example.com",
+      "invalidEmail": "invalid-email",
+      "validPhone": "+1-555-123-4567",
+      "invalidPhone": "123",
+      "validZipCode": "12345",
+      "invalidZipCode": "ABCDE"
+    },
+    "files": {
+      "validImageFile": "./test-resources/images/valid-image.jpg",
+      "invalidImageFile": "./test-resources/images/invalid-file.txt",
+      "largeFile": "./test-resources/files/large-file.pdf",
+      "csvFile": "./test-resources/data/test-data.csv"
+    },
+    "performance": {
+      "maxPageLoadTime": 5000,
+      "maxApiResponseTime": 2000,
+      "maxElementWaitTime": 10000
+    }
+  },
+  "database": {
+    "connections": {
+      "primary": {
+        "driver": "com.mysql.cj.jdbc.Driver",
+        "maxConnections": 10,
+        "connectionTimeout": 30000,
+        "validationQuery": "SELECT 1"
+      }
+    },
+    "queries": {
+      "getUserById": "SELECT * FROM users WHERE id = ?",
+      "getActiveUsers": "SELECT * FROM users WHERE active = 1",
+      "cleanupTestData": "DELETE FROM test_data WHERE created_at < DATE_SUB(NOW(), INTERVAL 1 DAY)"
+    }
+  },
+  "integrations": {
+    "thirdParty": {
+      "paymentGateway": {
+        "baseUrl": "https://api.payment-provider.com",
+        "apiKey": "${PAYMENT_API_KEY}",
+        "timeout": 30000
+      },
+      "emailService": {
+        "baseUrl": "https://api.email-service.com",
+        "apiKey": "${EMAIL_API_KEY}",
+        "timeout": 15000
+      }
+    }
+  },
+  "localization": {
+    "defaultLocale": "en-US",
+    "supportedLocales": ["en-US", "es-ES", "fr-FR", "de-DE", "ja-JP"],
+    "dateFormat": "MM/dd/yyyy",
+    "timeFormat": "HH:mm:ss",
+    "currency": "USD"
+  },
+  "security": {
+    "encryption": {
+      "algorithm": "AES-256",
+      "keyLength": 256
+    },
+    "authentication": {
+      "tokenExpiry": 3600,
+      "refreshTokenExpiry": 86400,
+      "maxLoginAttempts": 5,
+      "lockoutDuration": 900
+    }
+  }
+}
