@@ -1,0 +1,479 @@
+/**
+ * Database connection management interface
+ */
+public interface DatabaseManager {
+	Connection getConnection(String environmentKey) throws SQLException;
+
+	void closeConnection(String environmentKey);
+
+	void closeAllConnections();
+
+	boolean isConnectionValid(String environmentKey);
+
+	void validateConnectivity(String environmentKey) throws SQLException;
+}
+
+/**
+ * Notification service interface
+ */
+public interface NotificationService {
+	void sendNotification(String type, String message);
+
+	boolean isNotificationEnabled(String type);
+
+	void configure(Map<String, String> config);
+}
+
+
+// ===============================
+// DATABASE MANAGER IMPLEMENTATION
+// ===============================
+
+package config.database;
+
+import config.interfaces.DatabaseManager;
+import config.interfaces.ConfigurationException;
+import com.fasterxml.jackson.databind.JsonNode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * Enterprise database manager with connection pooling, health monitoring, and automatic cleanup
+ */
+public class EnhancedDatabaseManager implements DatabaseManager {
+    private static final Logger logger = LoggerFactory.getLogger(EnhancedDatabaseManager.class);
+    
+    // Connection pool and configuration
+    private final Map<String, Connection> connectionPool = new ConcurrentHashMap<>();
+    private final Map<String, DatabaseConfig> databaseConfigs = new ConcurrentHashMap<>();
+    private final Map<String, Long> lastAccessTime = new ConcurrentHashMap<>();
+    
+    // Health monitoring
+    private final ScheduledExecutorService healthMonitor = Executors.newSingleThreadScheduledExecutor();
+    private final long connectionTimeoutMs;
+    private final int maxRetries;
+    
+    // Configuration constants
+    private static final long DEFAULT_CONNECTION_TIMEOUT_MS = 30000; // 30 seconds
+    private static final int DEFAULT_MAX_RETRIES = 3;
+    private static final long HEALTH_CHECK_INTERVAL_MS = 60000; // 1 minute
+    private static final long CONNECTION_IDLE_TIMEOUT_MS = 300000; // 5 minutes
+    
+    public EnhancedDatabaseManager(JsonNode databaseConfig) {
+        this.connectionTimeoutMs = databaseConfig.path("connectionTimeoutMs").asLong(DEFAULT_CONNECTION_TIMEOUT_MS);
+        this.maxRetries = databaseConfig.path("maxRetries").asInt(DEFAULT_MAX_RETRIES);
+        
+        loadDatabaseConfigurations(databaseConfig);
+        startHealthMonitoring();
+        registerShutdownHook();
+        
+        logger.info("Database manager initialized with {} configurations", databaseConfigs.size());
+    }
+    
+    @Override
+    public Connection getConnection(String environmentKey) throws SQLException {
+        validateEnvironmentKey(environmentKey);
+        
+        // Check if connection exists and is valid
+        Connection existingConnection = connectionPool.get(environmentKey);
+        if (existingConnection != null && isConnectionValid(environmentKey)) {
+            updateLastAccessTime(environmentKey);
+            logger.debug("Returning existing connection for environment: {}", environmentKey);
+            return existingConnection;
+        }
+        
+        // Create new connection with retry logic
+        Connection newConnection = createConnectionWithRetry(environmentKey);
+        connectionPool.put(environmentKey, newConnection);
+        updateLastAccessTime(environmentKey);
+        
+        logger.info("New database connection established for environment: {}", environmentKey);
+        return newConnection;
+    }
+    
+    @Override
+    public void closeConnection(String environmentKey) {
+        Connection connection = connectionPool.remove(environmentKey);
+        if (connection != null) {
+            closeConnectionSafely(connection, environmentKey);
+            lastAccessTime.remove(environmentKey);
+            logger.info("Database connection closed for environment: {}", environmentKey);
+        }
+    }
+    
+    @Override
+    public void closeAllConnections() {
+        logger.info("Closing {} database connections...", connectionPool.size());
+        
+        connectionPool.forEach((env, connection) -> closeConnectionSafely(connection, env));
+        connectionPool.clear();
+        lastAccessTime.clear();
+        
+        // Shutdown health monitor
+        healthMonitor.shutdown();
+        try {
+            if (!healthMonitor.awaitTermination(5, TimeUnit.SECONDS)) {
+                healthMonitor.shutdownNow();
+            }
+        } catch (InterruptedException e) {
+            healthMonitor.shutdownNow();
+            Thread.currentThread().interrupt();
+        }
+        
+        logger.info("All database connections closed successfully");
+    }
+    
+    @Override
+    public boolean isConnectionValid(String environmentKey) {
+        Connection connection = connectionPool.get(environmentKey);
+        if (connection == null) {
+            return false;
+        }
+        
+        try {
+            return !connection.isClosed() && connection.isValid(5);
+        } catch (SQLException e) {
+            logger.error("Error checking connection validity for environment: {}", environmentKey, e);
+            return false;
+        }
+    }
+    
+    @Override
+    public void validateConnectivity(String environmentKey) throws SQLException {
+        DatabaseConfig config = databaseConfigs.get(environmentKey);
+        if (config == null) {
+            throw new SQLException("Database configuration not found for environment: " + environmentKey);
+        }
+        
+        Connection connection = getConnection(environmentKey);
+        String validationQuery = config.getValidationQuery();
+        
+        try (Statement statement = connection.createStatement()) {
+            statement.execute(validationQuery);
+            logger.debug("Database connectivity validation passed for environment: {}", environmentKey);
+        } catch (SQLException e) {
+            logger.error("Database connectivity validation failed for environment: {}", environmentKey, e);
+            throw new SQLException("Database connectivity validation failed", e);
+        }
+    }
+    
+    /**
+     * Load database configurations from JSON
+     */
+    private void loadDatabaseConfigurations(JsonNode databaseConfig) {
+        JsonNode environments = databaseConfig.path("environments");
+        JsonNode connections = databaseConfig.path("connections");
+        
+        environments.fields().forEachRemaining(envEntry -> {
+            String environmentKey = envEntry.getKey();
+            JsonNode envConfig = envEntry.getValue();
+            
+            String dbUrl = envConfig.path("dbUrl").asText();
+            if (!dbUrl.isEmpty()) {
+                DatabaseConfig config = new DatabaseConfig(
+                    dbUrl,
+                    connections.path("primary").path("driver").asText(),
+                    connections.path("primary").path("validationQuery").asText("SELECT 1"),
+                    envConfig.path("username").asText(""),
+                    envConfig.path("password").asText(""),
+                    envConfig.path("schema").asText("")
+                );
+                
+                databaseConfigs.put(environmentKey, config);
+                logger.debug("Loaded database configuration for environment: {}", environmentKey);
+            }
+        });
+    }
+    
+    /**
+     * Create database connection with retry logic
+     */
+    private Connection createConnectionWithRetry(String environmentKey) throws SQLException {
+        DatabaseConfig config = databaseConfigs.get(environmentKey);
+        if (config == null) {
+            throw new SQLException("Database configuration not found for environment: " + environmentKey);
+        }
+        
+        SQLException lastException = null;
+        
+        for (int attempt = 1; attempt <= maxRetries; attempt++) {
+            try {
+                return createConnection(config);
+            } catch (SQLException e) {
+                lastException = e;
+                logger.warn("Database connection attempt {} failed for environment: {} - {}", 
+                           attempt, environmentKey, e.getMessage());
+                
+                if (attempt < maxRetries) {
+                    try {
+                        Thread.sleep(1000 * attempt); // Exponential backoff
+                    } catch (InterruptedException ie) {
+                        Thread.currentThread().interrupt();
+                        throw new SQLException("Connection attempt interrupted", ie);
+                    }
+                }
+            }
+        }
+        
+        throw new SQLException("Failed to create database connection after " + maxRetries + " attempts", lastException);
+    }
+    
+    /**
+     * Create database connection
+     */
+    private Connection createConnection(DatabaseConfig config) throws SQLException {
+        try {
+            // Load database driver
+            Class.forName(config.getDriver());
+            
+            // Create connection
+            Connection connection;
+            if (!config.getUsername().isEmpty()) {
+                connection = DriverManager.getConnection(
+                    config.getDbUrl(), 
+                    config.getUsername(), 
+                    config.getPassword()
+                );
+            } else {
+                connection = DriverManager.getConnection(config.getDbUrl());
+            }
+            
+            // Set connection properties
+            connection.setAutoCommit(true);
+            
+            // Set schema if specified
+            if (!config.getSchema().isEmpty()) {
+                connection.setSchema(config.getSchema());
+            }
+            
+            return connection;
+            
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("Database driver not found: " + config.getDriver(), e);
+        }
+    }
+    
+    /**
+     * Close connection safely
+     */
+    private void closeConnectionSafely(Connection connection, String environmentKey) {
+        if (connection != null) {
+            try {
+                if (!connection.isClosed()) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                logger.error("Error closing database connection for environment: {}", environmentKey, e);
+            }
+        }
+    }
+    
+    /**
+     * Validate environment key
+     */
+    private void validateEnvironmentKey(String environmentKey) throws SQLException {
+        if (environmentKey == null || environmentKey.trim().isEmpty()) {
+            throw new SQLException("Environment key cannot be null or empty");
+        }
+        
+        if (!databaseConfigs.containsKey(environmentKey)) {
+            throw new SQLException("Database configuration not found for environment: " + environmentKey);
+        }
+    }
+    
+    /**
+     * Update last access time for connection
+     */
+    private void updateLastAccessTime(String environmentKey) {
+        lastAccessTime.put(environmentKey, System.currentTimeMillis());
+    }
+    
+    /**
+     * Start health monitoring for connections
+     */
+    private void startHealthMonitoring() {
+        healthMonitor.scheduleAtFixedRate(this::performHealthCheck, 
+            HEALTH_CHECK_INTERVAL_MS, HEALTH_CHECK_INTERVAL_MS, TimeUnit.MILLISECONDS);
+        
+        logger.debug("Database health monitoring started");
+    }
+    
+    /**
+     * Perform health check on all connections
+     */
+    private void performHealthCheck() {
+        logger.debug("Performing database health check...");
+        
+        connectionPool.entrySet().removeIf(entry -> {
+            String environmentKey = entry.getKey();
+            Connection connection = entry.getValue();
+            
+            try {
+                // Check if connection is still valid
+                if (connection.isClosed() || !connection.isValid(5)) {
+                    logger.warn("Removing invalid connection for environment: {}", environmentKey);
+                    closeConnectionSafely(connection, environmentKey);
+                    lastAccessTime.remove(environmentKey);
+                    return true;
+                }
+                
+                // Check if connection has been idle too long
+                Long lastAccess = lastAccessTime.get(environmentKey);
+                if (lastAccess != null && 
+                    (System.currentTimeMillis() - lastAccess) > CONNECTION_IDLE_TIMEOUT_MS) {
+                    logger.info("Removing idle connection for environment: {}", environmentKey);
+                    closeConnectionSafely(connection, environmentKey);
+                    lastAccessTime.remove(environmentKey);
+                    return true;
+                }
+                
+                return false;
+                
+            } catch (SQLException e) {
+                logger.error("Error during health check for environment: {}", environmentKey, e);
+                closeConnectionSafely(connection, environmentKey);
+                lastAccessTime.remove(environmentKey);
+                return true;
+            }
+        });
+    }
+    
+    /**
+     * Register shutdown hook for cleanup
+     */
+    private void registerShutdownHook() {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            logger.info("Database manager shutdown hook executing...");
+            closeAllConnections();
+        }));
+    }
+    
+    /**
+     * Get connection pool statistics
+     */
+    public Map<String, Object> getConnectionPoolStatistics() {
+        Map<String, Object> stats = new ConcurrentHashMap<>();
+        stats.put("activeConnections", connectionPool.size());
+        stats.put("configuredEnvironments", databaseConfigs.size());
+        stats.put("healthCheckInterval", HEALTH_CHECK_INTERVAL_MS);
+        stats.put("connectionTimeout", connectionTimeoutMs);
+        stats.put("maxRetries", maxRetries);
+        
+        return stats;
+    }
+    
+    /**
+     * Execute query on specific environment
+     */
+    public boolean executeQuery(String environmentKey, String query) throws SQLException {
+        Connection connection = getConnection(environmentKey);
+        
+        try (Statement statement = connection.createStatement()) {
+            return statement.execute(query);
+        } catch (SQLException e) {
+            logger.error("Error executing query on environment {}: {}", environmentKey, e.getMessage());
+            throw e;
+        }
+    }
+    
+    /**
+     * Test connection for specific environment
+     */
+    public boolean testConnection(String environmentKey) {
+        try {
+            validateConnectivity(environmentKey);
+            return true;
+        } catch (SQLException e) {
+            logger.error("Connection test failed for environment: {}", environmentKey, e);
+            return false;
+        }
+    }
+}
+
+/**
+ * Database configuration holder
+ */
+class DatabaseConfig {
+    private final String dbUrl;
+    private final String driver;
+    private final String validationQuery;
+    private final String username;
+    private final String password;
+    private final String schema;
+    
+    public DatabaseConfig(String dbUrl, String driver, String validationQuery, 
+                         String username, String password, String schema) {
+        this.dbUrl = dbUrl;
+        this.driver = driver;
+        this.validationQuery = validationQuery;
+        this.username = username;
+        this.password = password;
+        this.schema = schema;
+    }
+    
+    // Getters
+    public String getDbUrl() { return dbUrl; }
+    public String getDriver() { return driver; }
+    public String getValidationQuery() { return validationQuery; }
+    public String getUsername() { return username; }
+    public String getPassword() { return password; }
+    public String getSchema() { return schema; }
+}
+
+
+// ===============================
+	// DATABASE MANAGEMENT
+	// ===============================
+
+	/**
+	 * Get database connection for current environment
+	 */
+	public Connection getDatabaseConnection() throws SQLException {
+		String environment = getEnvironment();
+		Connection connection = databaseManager.getConnection(environment);
+
+		// Register connection for automatic cleanup
+		String resourceKey = "db-" + environment + "-" + Thread.currentThread().getId();
+		resourceManager.registerResource(resourceKey, connection);
+
+		return connection;
+	}
+
+	/**
+	 * Get database connection for specific environment
+	 */
+	public Connection getDatabaseConnection(String environment) throws SQLException {
+		Connection connection = databaseManager.getConnection(environment);
+
+		// Register connection for automatic cleanup
+		String resourceKey = "db-" + environment + "-" + Thread.currentThread().getId();
+		resourceManager.registerResource(resourceKey, connection);
+
+		return connection;
+	}
+
+	/**
+	 * Close database connection for current environment
+	 */
+	public void closeDatabaseConnection() {
+		String environment = getEnvironment();
+		databaseManager.closeConnection(environment);
+	}
+
+	/**
+	 * Close all database connections
+	 */
+	public void closeAllDatabaseConnections() {
+		databaseManager.closeAllConnections();
+		logger.info("All database connections closed");
+	}

@@ -1,0 +1,11 @@
+PERFORMANCE ANALYSIS REPORT
+==================================================
+Suite Execution Time: 16707 ms
+Average Test Duration: 5000 ms
+Total Screenshots: 0
+Total Artifacts: 0
+
+MEMORY USAGE:
+Total Memory: 160 MB
+Used Memory: 100 MB
+Free Memory: 60 MB

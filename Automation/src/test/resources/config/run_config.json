@@ -1,0 +1,90 @@
+{
+  "environment": "local",
+  "browser": "chrome",
+  "execution": {
+    "parallel": false,
+    "threadCount": 1,
+    "maxRetries": 2,
+    "retryFailedTests": true,
+    "failFast": false,
+    "dryRun": false
+  },
+  "grid": {
+    "remoteExecution": false,
+    "remoteWebDriverUrl": "http://selenium-hub:4444/wd/hub",
+    "hubHost": "localhost",
+    "hubPort": 4444,
+    "maxSessions": 10,
+    "sessionTimeout": 300
+  },
+  "screenshots": {
+    "takeScreenshots": true,
+    "screenshotPath": "./test-output/screenshots",
+    "screenshotOnFailure": true,
+    "screenshotOnSuccess": false,
+    "screenshotFormat": "PNG",
+    "fullPageScreenshots": false
+  },
+  "video": {
+    "videoRecording": false,
+    "videoPath": "./test-output/videos",
+    "recordOnFailure": true,
+    "videoFormat": "MP4",
+    "frameRate": 12
+  },
+  "monitoring": {
+    "enableVnc": false,
+    "vncPort": 5900,
+    "enablePerformanceMonitoring": false,
+    "memoryThreshold": 80,
+    "cpuThreshold": 90
+  },
+  "timeouts": {
+    "defaultTimeout": 30,
+    "testTimeout": 600,
+    "suiteTimeout": 3600,
+    "hookTimeout": 30
+  },
+  "reporting": {
+    "generateAllureReport": true,
+    "allureResultsPath": "./test-output/allure-results",
+    "generateHtmlReport": false,
+    "generateJsonReport": true,
+    "generateJunitReport": true,
+    "customReportTemplate": "",
+    "reportTitle": "Automation Test Report",
+    "reportDescription": "Comprehensive test execution report"
+  },
+  "debugging": {
+    "enableDebugMode": false,
+    "pauseOnFailure": false,
+    "highlightElements": false,
+    "slowMotion": 0,
+    "debugPort": 9222
+  },
+  "cleanup": {
+    "cleanupOnStart": true,
+    "cleanupOnEnd": true,
+    "retainLogsOnFailure": true,
+    "maxLogAge": 7,
+    "archiveOldReports": true
+  },
+  "notifications": {
+    "enabled": false,
+    "email": {
+      "enabled": false,
+      "recipients": ["qa-team@company.com"],
+      "onFailure": true,
+      "onSuccess": false
+    },
+    "slack": {
+      "enabled": false,
+      "webhook": "",
+      "channel": "#qa-automation"
+    },
+    "teams": {
+      "enabled": false,
+      "webhook": ""
+    }
+  }
+}

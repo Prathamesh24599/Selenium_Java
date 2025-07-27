@@ -1,0 +1,1 @@
+package novus.config.models;
