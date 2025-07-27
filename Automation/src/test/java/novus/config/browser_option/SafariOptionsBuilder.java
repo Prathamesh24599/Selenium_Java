@@ -1,78 +1,49 @@
 package novus.config.browser_option;
 
-import java.util.Map;
-
-import novus.config.config_interfaces.BrowserOptions;
-import novus.config.models.DriverConfiguration;
 
 import org.openqa.selenium.safari.SafariOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Map;
+
 /**
- * Safari options builder
+ * Safari browser options builder
  */
-public class SafariOptionsBuilder implements BrowserOptions<SafariOptions> {
-	private static final Logger logger = LoggerFactory.getLogger(SafariOptionsBuilder.class);
+public class SafariOptionsBuilder {
+    private static final Logger logger = LoggerFactory.getLogger(SafariOptionsBuilder.class);
+    
+    private final BrowserConfigHelper configHelper;
+    private final String browserName = "safari";
 
-	public static SafariOptions build(DriverConfiguration config) {
-		return new SafariOptionsBuilder().buildOptions(config);
-	}
+    public SafariOptionsBuilder(BrowserConfigHelper configHelper) {
+        this.configHelper = configHelper;
+    }
 
-	@Override
-	public SafariOptions buildOptions(DriverConfiguration config) {
-		SafariOptions options = new SafariOptions();
+    public SafariOptions build() {
+        return build("defaultOptions");
+    }
 
-		// Configure Safari-specific options
-		configureBasicOptions(options, config);
+    public SafariOptions build(String optionsType) {
+        SafariOptions options = new SafariOptions();
 
-		// Apply custom capabilities
-		applyCustomCapabilities(options, config.getCustomCapabilities());
+        try {
+            // Safari has limited configuration options compared to other browsers
+            
+            // Apply experimental options as capabilities
+            Map<String, Object> expOptions = configHelper.getExperimentalOptions(browserName, optionsType);
+            expOptions.forEach(options::setCapability);
+            if (!expOptions.isEmpty()) {
+                logger.debug("Applied {} experimental options to Safari", expOptions.size());
+            }
 
-		logger.debug("Safari options configured successfully");
-		return options;
-	}
+            // Note: Safari doesn't support arguments or preferences like Chrome/Edge/Firefox
+            // Most configuration is done through system preferences
+            
+        } catch (Exception e) {
+            logger.error("Error building Safari options for {}: {}", optionsType, e.getMessage(), e);
+        }
 
-	@Override
-	public SafariOptions buildHeadlessOptions(DriverConfiguration config) {
-		// Safari doesn't support headless mode
-		logger.warn("Headless mode not supported for Safari, using regular options");
-		return buildOptions(config);
-	}
-
-	@Override
-	public SafariOptions buildMobileOptions(DriverConfiguration config, String deviceName) {
-		// Safari doesn't support mobile emulation
-		logger.warn("Mobile emulation not supported for Safari, using regular options");
-		return buildOptions(config);
-	}
-
-	@Override
-	public void applyCustomCapabilities(SafariOptions options, Map<String, Object> capabilities) {
-		if (capabilities != null && !capabilities.isEmpty()) {
-			capabilities.forEach((key, value) -> {
-				options.setCapability(key, value);
-				logger.debug("Applied custom Safari capability: {} = {}", key, value);
-			});
-		}
-	}
-
-	/**
-	 * Configure basic Safari options
-	 */
-	private void configureBasicOptions(SafariOptions options, DriverConfiguration config) {
-		// Enable automatic inspection if needed
-		if (config.getCustomCapabilities().containsKey("automaticInspection")) {
-			boolean automaticInspection = (Boolean) config.getCustomCapabilities().get("automaticInspection");
-			options.setAutomaticInspection(automaticInspection);
-		}
-
-		// Enable automatic profiling if needed
-		if (config.getCustomCapabilities().containsKey("automaticProfiling")) {
-			boolean automaticProfiling = (Boolean) config.getCustomCapabilities().get("automaticProfiling");
-			options.setAutomaticProfiling(automaticProfiling);
-		}
-
-		logger.debug("Safari basic options configured");
-	}
+        return options;
+    }
 }

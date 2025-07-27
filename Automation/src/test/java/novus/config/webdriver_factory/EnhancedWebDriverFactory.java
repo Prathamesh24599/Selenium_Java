@@ -4,12 +4,13 @@ import novus.config.config_interfaces.ConfigurationLoader;
 import novus.config.config_interfaces.WebDriverFactory;
 import novus.config.config_interfaces.CustomExceptions.*;
 import novus.config.models.DriverConfiguration;
+import novus.config.browser_option.BrowserConfigHelper;
+import novus.config.config_loader.ConfigurationPropertiesProvider;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 import org.openqa.selenium.Capabilities;
 import java.net.URI;
@@ -28,9 +29,21 @@ public class EnhancedWebDriverFactory implements WebDriverFactory {
 
 	private final Map<String, WebDriverFactory> browserFactories;
 	private final String remoteHubUrl;
+	private final BrowserConfigHelper configHelper;
 
 	public EnhancedWebDriverFactory(String remoteHubUrl) {
+		this(remoteHubUrl, createDefaultConfigHelper());
+	}
+
+	public EnhancedWebDriverFactory(String remoteHubUrl, BrowserConfigHelper configHelper) {
 		this.remoteHubUrl = remoteHubUrl;
+		this.configHelper = configHelper;
+		this.browserFactories = initializeBrowserFactories();
+	}
+
+	public EnhancedWebDriverFactory(String remoteHubUrl, ConfigurationPropertiesProvider configProvider) {
+		this.remoteHubUrl = remoteHubUrl;
+		this.configHelper = new BrowserConfigHelper(configProvider);
 		this.browserFactories = initializeBrowserFactories();
 	}
 
@@ -98,10 +111,10 @@ public class EnhancedWebDriverFactory implements WebDriverFactory {
 	private Map<String, WebDriverFactory> initializeBrowserFactories() {
 		Map<String, WebDriverFactory> factories = new ConcurrentHashMap<>();
 
-		factories.put("chrome", new ChromeDriverFactory(remoteHubUrl));
-		factories.put("firefox", new FirefoxDriverFactory(remoteHubUrl));
-		factories.put("edge", new EdgeDriverFactory(remoteHubUrl));
-		factories.put("safari", new SafariDriverFactory(remoteHubUrl));
+		factories.put("chrome", new ChromeDriverFactory(remoteHubUrl, configHelper));
+		factories.put("firefox", new FirefoxDriverFactory(remoteHubUrl, configHelper));
+		factories.put("edge", new EdgeDriverFactory(remoteHubUrl, configHelper));
+		factories.put("safari", new SafariDriverFactory(remoteHubUrl, configHelper));
 
 		logger.info("Initialized {} browser factories: {}", factories.size(), factories.keySet());
 		return factories;
@@ -117,6 +130,22 @@ public class EnhancedWebDriverFactory implements WebDriverFactory {
 		}
 		return factory;
 	}
+
+	/**
+	 * Create a default BrowserConfigHelper instance
+	 */
+	private static BrowserConfigHelper createDefaultConfigHelper() {
+		try {
+			// FIXME: This should not be used - instead pass ConfigurationPropertiesProvider 
+			// from the calling code that already has it initialized
+			logger.warn("Using default config helper - ConfigurationPropertiesProvider should be injected");
+			return null;
+			
+		} catch (Exception e) {
+			logger.error("Failed to create default BrowserConfigHelper: {}", e.getMessage(), e);
+			return null;
+		}
+	}
 }
 
 /**
@@ -125,9 +154,11 @@ public class EnhancedWebDriverFactory implements WebDriverFactory {
 abstract class AbstractBrowserFactory implements WebDriverFactory {
 	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	protected final String remoteHubUrl;
+	protected final BrowserConfigHelper configHelper;
 
-	protected AbstractBrowserFactory(String remoteHubUrl) {
+	protected AbstractBrowserFactory(String remoteHubUrl, BrowserConfigHelper configHelper) {
 		this.remoteHubUrl = remoteHubUrl;
+		this.configHelper = configHelper;
 	}
 
 	@Override
@@ -162,7 +193,6 @@ abstract class AbstractBrowserFactory implements WebDriverFactory {
 		URL hubUrl = hubUri.toURL();
 		Capabilities capabilities = (Capabilities) createCapabilities(config);
 		RemoteWebDriver driver = new RemoteWebDriver(hubUrl, capabilities);
-
 
 		configureRemoteDriver(driver, config);
 

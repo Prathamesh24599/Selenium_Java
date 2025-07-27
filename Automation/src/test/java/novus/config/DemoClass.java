@@ -3,7 +3,6 @@ package novus.config;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import novus.config.config_interfaces.ConfigurationLoader;
-import novus.config.config_loader.ConfigurationPropertiesProvider;
 import novus.config.config_loader.DefaultConfigurationLoader;
 
 public class DemoClass {

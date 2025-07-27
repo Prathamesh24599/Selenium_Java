@@ -6,6 +6,11 @@ package novus.config.main_configuration;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
+import novus.config.browser_option.BrowserConfigHelper;
+import novus.config.browser_option.ChromeOptionsBuilder;
+import novus.config.browser_option.EdgeOptionsBuilder;
+import novus.config.browser_option.FirefoxOptionsBuilder;
+import novus.config.browser_option.SafariOptionsBuilder;
 import novus.config.config_interfaces.ConfigurationLoader;
 import novus.config.config_interfaces.ConfigurationProperties;
 import novus.config.config_interfaces.HealthCheck;
@@ -26,7 +31,9 @@ import novus.config.models.TimeoutConfiguration;
 import novus.config.resource_manager.EnterpriseResourceManager;
 import novus.config.webdriver_factory.EnhancedWebDriverFactory;
 
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -64,6 +71,7 @@ public class EnterpriseConfigurationManager implements ConfigurationProperties {
 	private final SystemHealthChecker healthChecker;
 	private final ResourceManager resourceManager;
 	
+	private final BrowserConfigHelper browserConfigHelper;
 	private final ConfigurationPropertiesProvider configProvider;
 
 	// Configuration holders
@@ -80,6 +88,7 @@ public class EnterpriseConfigurationManager implements ConfigurationProperties {
 	 * Private constructor implementing secure Singleton pattern
 	 */
 	private EnterpriseConfigurationManager() {
+		this.browserConfigHelper = null;
 		this.initializationStartTime = System.currentTimeMillis();
 
 		logger.info("Initializing Enterprise Configuration Manager...");
@@ -582,4 +591,53 @@ public class EnterpriseConfigurationManager implements ConfigurationProperties {
 		T value = (T) runtimeMetrics.get(key);
 		return value != null ? value : defaultValue;
 	}
+	
+	// ===============================
+	// BROWSER OPTIONS MANAGEMENT
+	// ===============================
+
+	
+	/**
+	 * Create Chrome options with mobile emulation
+	 */
+	public ChromeOptions createMobileEmulationOptions(String deviceName) {
+	    if (!"chrome".equalsIgnoreCase(getBrowserName())) {
+	        throw new ConfigurationException("Mobile emulation is only supported for Chrome browser");
+	    }
+	    return new ChromeOptionsBuilder(browserConfigHelper).buildWithMobileEmulation(deviceName);
+	}
+	
+	/**
+	 * Create browser options for current browser configuration
+	 */
+	public MutableCapabilities createBrowserOptions() {
+	    return createBrowserOptions("defaultOptions");
+	}
+
+	/**
+	 * Create browser options with specific options type
+	 */
+	public MutableCapabilities createBrowserOptions(String optionsType) {
+	    String browserName = getBrowserName().toLowerCase();
+	    
+	    try {
+	        switch (browserName) {
+	            case "chrome":
+	                return new ChromeOptionsBuilder(browserConfigHelper).build(optionsType);
+	            case "edge":
+	                return new EdgeOptionsBuilder(browserConfigHelper).build(optionsType);
+	            case "firefox":
+	                return new FirefoxOptionsBuilder(browserConfigHelper).build(optionsType);
+	            case "safari":
+	                return new SafariOptionsBuilder(browserConfigHelper).build(optionsType);
+	            default:
+	                logger.warn("Unsupported browser: {}, returning generic capabilities", browserName);
+	                return new MutableCapabilities();
+	        }
+	    } catch (Exception e) {
+	        logger.error("Error creating browser options for {}: {}", browserName, e.getMessage(), e);
+	        return new MutableCapabilities();
+	    }
+	}
+	
 }

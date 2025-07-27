@@ -3,7 +3,9 @@ package novus.config.webdriver_factory;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 
+import novus.config.browser_option.BrowserConfigHelper;
 import novus.config.browser_option.EdgeOptionsBuilder;
 import novus.config.models.DriverConfiguration;
 
@@ -12,33 +14,35 @@ import novus.config.models.DriverConfiguration;
  */
 class EdgeDriverFactory extends AbstractBrowserFactory {
 
-	public EdgeDriverFactory(String remoteHubUrl) {
-		super(remoteHubUrl);
-	}
+	public EdgeDriverFactory(String remoteHubUrl, BrowserConfigHelper configHelper) {
+        super(remoteHubUrl, configHelper);
+    }
 
 	@Override
 	protected WebDriver createLocalDriver(DriverConfiguration config) throws Exception {
-		var edgeOptions = EdgeOptionsBuilder.build(config);
-		return new org.openqa.selenium.edge.EdgeDriver(edgeOptions);
+	    EdgeOptionsBuilder builder = new EdgeOptionsBuilder(configHelper);
+	    EdgeOptions edgeOptions = builder.build(config.getBrowserName()); // Direct string
+	    return new org.openqa.selenium.edge.EdgeDriver(edgeOptions);
 	}
 
 	@Override
 	protected Object createCapabilities(DriverConfiguration config) {
-		return EdgeOptionsBuilder.build(config);
+	    EdgeOptionsBuilder builder = new EdgeOptionsBuilder(configHelper);
+	    return builder.build(config.getBrowserName()); // Direct string
 	}
 
 	@Override
 	public boolean supportsDriverType(String driverType) {
-		return "edge".equalsIgnoreCase(driverType);
+	    return "edge".equalsIgnoreCase(driverType);
 	}
 
 	@Override
 	public List<String> getSupportedBrowsers() {
-		return List.of("edge");
+	    return List.of("edge");
 	}
 
 	@Override
 	protected String getSupportedBrowser() {
-		return "edge";
+	    return "edge";
 	}
 }
