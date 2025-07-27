@@ -1,7 +1,5 @@
 package novus.config.integration;
 
-import java.util.Map;
-
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

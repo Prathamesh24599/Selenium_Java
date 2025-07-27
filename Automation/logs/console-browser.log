@@ -1,0 +1,294 @@
+2025-07-27 23:14:00,620 [main] DEBUG org.testng.TestNG - suiteXmlPath: "C:\Users\PRATHA~1\AppData\Local\Temp\testng-eclipse-1702299995\testng-customsuite.xml"
+2025-07-27 23:14:01,906 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2025-07-27 23:14:01,913 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 4 ms.
+2025-07-27 23:14:01,915 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:14:01,915 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:14:01,934 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:14:01,934 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:14:01,935 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:14:01,935 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:14:01,943 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 6 ms.
+2025-07-27 23:14:01,964 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 20 ms.
+2025-07-27 23:14:01,966 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:14:01,966 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:14:01,968 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:14:01,968 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:14:01,969 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:14:01,969 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:14:01,973 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:14:01,973 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:14:01,975 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2025-07-27 23:14:01,975 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:14:01,980 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:14:01,980 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:14:01,980 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:14:01,981 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:14:01,982 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:14:01,983 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:14:01,985 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:14:01,985 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:14:01,985 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:14:01,986 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:14:02,005 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\Prathamesh\AppData\Local\Temp\testng-eclipse-1702299995\testng-customsuite.xml
+
+2025-07-27 23:14:02,066 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 12 ms.
+2025-07-27 23:14:02,150 [main] INFO  novus.config.integration.TestNG - Setting up test class...
+2025-07-27 23:14:02,186 [main] INFO  novus.config.main_configuration.EnterpriseConfigurationManager - Initializing Enterprise Configuration Manager...
+2025-07-27 23:14:02,745 [main] DEBUG novus.config.resource_manager.EnterpriseResourceManager - Resource monitoring started
+2025-07-27 23:14:02,745 [main] INFO  novus.config.resource_manager.EnterpriseResourceManager - Enterprise Resource Manager initialized
+2025-07-27 23:14:02,746 [main] DEBUG novus.config.resource_manager.EnterpriseResourceManager - Shutdown hook registered
+2025-07-27 23:14:02,746 [main] DEBUG novus.config.main_configuration.EnterpriseConfigurationManager - Loading configuration files...
+2025-07-27 23:14:02,816 [main] DEBUG novus.config.config_loader.DefaultConfigurationLoader - Configuration validation passed
+2025-07-27 23:14:02,817 [main] DEBUG novus.config.config_loader.DefaultConfigurationLoader - Successfully loaded and cached configuration: config/web.json
+2025-07-27 23:14:02,818 [main] DEBUG novus.config.config_loader.DefaultConfigurationLoader - Configuration validation passed
+2025-07-27 23:14:02,818 [main] DEBUG novus.config.config_loader.DefaultConfigurationLoader - Successfully loaded and cached configuration: config/run_config.json
+2025-07-27 23:14:02,821 [main] DEBUG novus.config.config_loader.DefaultConfigurationLoader - Configuration validation passed
+2025-07-27 23:14:02,821 [main] DEBUG novus.config.config_loader.DefaultConfigurationLoader - Successfully loaded and cached configuration: config/application.json
+2025-07-27 23:14:02,821 [main] INFO  novus.config.main_configuration.EnterpriseConfigurationManager - All configurations loaded successfully
+2025-07-27 23:14:02,825 [main] DEBUG novus.config.config_loader.ConfigurationPropertiesProvider - Using configuration value for run.grid.hubHost: localhost
+2025-07-27 23:14:02,826 [main] WARN  novus.config.webdriver_factory.EnhancedWebDriverFactory - ConfigurationPropertiesProvider not available - BrowserConfigHelper will be null (basic options will be used)
+2025-07-27 23:14:02,834 [main] INFO  novus.config.webdriver_factory.EnhancedWebDriverFactory - Initialized 4 browser factories: [edge, chrome, safari, firefox]
+2025-07-27 23:14:02,838 [main] INFO  novus.config.health_checker.ComprehensiveHealthChecker - Health checker initialized - Network: true, Disk: true, Memory: true
+2025-07-27 23:14:02,838 [main] DEBUG novus.config.health_checker.ComprehensiveHealthChecker - Starting comprehensive health check...
+2025-07-27 23:14:02,892 [main] INFO  novus.config.health_checker.ComprehensiveHealthChecker - Health check completed in 53ms - Status: HEALTHY
+2025-07-27 23:14:02,893 [main] DEBUG novus.config.main_configuration.EnterpriseConfigurationManager - Runtime metrics initialized
+2025-07-27 23:14:02,893 [main] INFO  novus.config.main_configuration.EnterpriseConfigurationManager - Enterprise Configuration Manager initialized successfully in 707ms
+2025-07-27 23:14:02,893 [main] DEBUG novus.config.health_checker.ComprehensiveHealthChecker - Starting comprehensive health check...
+2025-07-27 23:14:02,913 [main] INFO  novus.config.health_checker.ComprehensiveHealthChecker - Health check completed in 20ms - Status: HEALTHY
+2025-07-27 23:14:02,913 [main] INFO  novus.config.integration.TestNG - Test class setup completed
+2025-07-27 23:14:02,958 [main] INFO  novus.config.integration.TestNG - Setting up test method...
+2025-07-27 23:14:02,965 [main] DEBUG novus.config.config_loader.ConfigurationPropertiesProvider - Using configuration value for run.browser: chrome
+2025-07-27 23:14:02,965 [main] DEBUG novus.config.config_loader.ConfigurationPropertiesProvider - Using configuration value for run.mobileDevice: 
+2025-07-27 23:14:02,966 [main] INFO  novus.config.webdriver_factory.EnhancedWebDriverFactory - Creating chrome driver - Remote: false, Headless: false, Mobile: 
+2025-07-27 23:14:02,979 [main] ERROR novus.config.browser_option.ChromeOptionsBuilder - Error building Chrome options for defaultOptions: Cannot invoke "novus.config.browser_option.BrowserConfigHelper.getBrowserArguments(String, String)" because "this.configHelper" is null
+java.lang.NullPointerException: Cannot invoke "novus.config.browser_option.BrowserConfigHelper.getBrowserArguments(String, String)" because "this.configHelper" is null
+	at novus.config.browser_option.ChromeOptionsBuilder.build(ChromeOptionsBuilder.java:34) [test-classes/:?]
+	at novus.config.webdriver_factory.ChromeDriverFactory.createLocalDriver(ChromeDriverFactory.java:24) [test-classes/:?]
+	at novus.config.webdriver_factory.AbstractBrowserFactory.createDriver(EnhancedWebDriverFactory.java:177) [test-classes/:?]
+	at novus.config.webdriver_factory.EnhancedWebDriverFactory.createDriver(EnhancedWebDriverFactory.java:52) [test-classes/:?]
+	at novus.config.main_configuration.EnterpriseConfigurationManager.createDriver(EnterpriseConfigurationManager.java:166) [test-classes/:?]
+	at novus.config.main_configuration.EnterpriseConfigurationManager.createDriver(EnterpriseConfigurationManager.java:155) [test-classes/:?]
+	at novus.config.integration.TestNG.setUp(TestNG.java:43) [test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:565) ~[?:?]
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:836) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:601) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.testng.TestRunner.privateRun(TestRunner.java:741) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.TestRunner.run(TestRunner.java:616) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.TestNG.runSuites(TestNG.java:1112) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.TestNG.run(TestNG.java:1079) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115) [testng-remote.jar:?]
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293) [testng-remote.jar:?]
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91) [testng-remote.jar:?]
+2025-07-27 23:14:06,147 [main] DEBUG novus.config.webdriver_factory.EnhancedWebDriverFactory - Configuring driver settings...
+2025-07-27 23:14:06,258 [main] DEBUG novus.config.webdriver_factory.EnhancedWebDriverFactory - Driver configuration completed
+2025-07-27 23:14:06,259 [main] INFO  novus.config.webdriver_factory.EnhancedWebDriverFactory - Driver created successfully in 3293ms for thread: 3
+2025-07-27 23:14:06,280 [main] DEBUG novus.config.resource_manager.EnterpriseResourceManager - Registered resource: webdriver-3-1753638246259 (type: EnterpriseConfigurationManager$$Lambda/0x000001e901394b70)
+2025-07-27 23:14:06,280 [main] INFO  novus.config.main_configuration.EnterpriseConfigurationManager - WebDriver created successfully in 3322ms for thread: 3
+2025-07-27 23:14:06,281 [main] DEBUG novus.config.config_loader.ConfigurationPropertiesProvider - Using configuration value for run.environment: local
+2025-07-27 23:14:06,964 [main] INFO  novus.config.integration.TestNG - Test method setup completed
+2025-07-27 23:14:07,279 [main] INFO  pom.pages1.Login_Page1 - Validating Login Page load...
+2025-07-27 23:14:07,319 [main] INFO  pom.pages1.Login_Page1 - Login Page validated successfully - Title: 'Hands-On Selenium WebDriver with Java', URL: 'https://bonigarcia.dev/selenium-webdriver-java/login-form.html'
+2025-07-27 23:14:07,319 [main] INFO  pom.pages1.Login_Page1 - Login_Page1 initialized
+2025-07-27 23:14:07,319 [main] INFO  pom.pages1.Login_Page1 - Attempting login with username: user
+2025-07-27 23:14:07,319 [main] DEBUG pom.pages1.Login_Page1 - Entering username: user
+2025-07-27 23:14:07,569 [main] DEBUG pom.pages1.Login_Page1 - Username entered successfully
+2025-07-27 23:14:07,570 [main] DEBUG pom.pages1.Login_Page1 - Entering password
+2025-07-27 23:14:07,779 [main] DEBUG pom.pages1.Login_Page1 - Password entered successfully
+2025-07-27 23:14:07,779 [main] DEBUG pom.pages1.Login_Page1 - Clicking submit button
+2025-07-27 23:14:08,010 [main] DEBUG pom.pages1.Login_Page1 - Submit button clicked successfully
+2025-07-27 23:14:18,157 [main] DEBUG pom.pages1.Login_Page1 - Login success check - Success message visible: true
+2025-07-27 23:14:18,157 [main] INFO  pom.pages1.Login_Page1 - Login successful for user: user in 765ms
+2025-07-27 23:14:18,157 [main] DEBUG result.LoginResult - Creating successful login result for user: user, execution time: 765ms
+2025-07-27 23:14:18,157 [main] DEBUG result.LoginResult - Returning HomePage for successful login of user: user
+2025-07-27 23:14:18,164 [main] INFO  pom.pages1.Home_Page1 - Validating Home Page load...
+2025-07-27 23:14:18,227 [main] INFO  pom.pages1.Home_Page1 - Home Page validated successfully - Title: 'Hands-On Selenium WebDriver with Java', URL: 'https://bonigarcia.dev/selenium-webdriver-java/login-sucess.html?username=user&password=user'
+2025-07-27 23:14:18,227 [main] INFO  pom.pages1.Home_Page1 - Home_Page1 initialized
+2025-07-27 23:14:18,227 [main] INFO  pom.pages1.Home_Page1 - Fetching success message
+2025-07-27 23:14:18,333 [main] INFO  novus.config.integration.TestNG - Tearing down test method...
+2025-07-27 23:14:18,333 [main] DEBUG novus.config.config_loader.ConfigurationPropertiesProvider - Using configuration value for run.screenshots.screenshotPath: ./test-output/screenshots
+2025-07-27 23:14:18,333 [main] INFO  novus.config.integration.TestNG - Screenshot would be taken to: ./test-output/screenshots
+2025-07-27 23:14:18,333 [main] INFO  novus.config.resource_manager.EnterpriseResourceManager - Cleaning up all resources of type: WebDriver
+2025-07-27 23:14:18,335 [main] INFO  novus.config.main_configuration.EnterpriseConfigurationManager - WebDriver cleanup completed for thread: 3
+2025-07-27 23:14:18,335 [main] INFO  novus.config.integration.TestNG - Test method teardown completed
+2025-07-27 23:14:18,353 [main] INFO  novus.config.integration.TestNG - Tearing down test class...
+2025-07-27 23:14:18,353 [main] INFO  novus.config.resource_manager.EnterpriseResourceManager - Cleaning up all resources of type: WebDriver
+2025-07-27 23:14:18,353 [main] INFO  novus.config.main_configuration.EnterpriseConfigurationManager - All WebDrivers cleaned up successfully
+2025-07-27 23:14:18,353 [main] INFO  novus.config.integration.TestNG - Test class teardown completed
+2025-07-27 23:14:18,617 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.jq.Main@306c9b2c: 163 ms
+2025-07-27 23:14:18,620 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.FailedReporter@64508788: 0 ms
+2025-07-27 23:14:18,648 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.XMLReporter@11120583: 28 ms
+2025-07-27 23:14:18,670 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@b3a8455: 22 ms
+2025-07-27 23:14:18,690 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@5b715ea: 20 ms
+2025-07-27 23:14:18,692 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@787a0fd6: 0 ms
+2025-07-27 23:14:18,694 [ResourceManager-ShutdownHook] INFO  novus.config.resource_manager.EnterpriseResourceManager - Resource Manager shutdown hook executing...
+2025-07-27 23:14:18,694 [ResourceManager-ShutdownHook] INFO  novus.config.resource_manager.EnterpriseResourceManager - Releasing 1 resources...
+2025-07-27 23:14:18,696 [ResourceManager-ShutdownHook] DEBUG novus.config.resource_manager.EnterpriseResourceManager - Closing EnterpriseConfigurationManager$$Lambda/0x000001e901394b70 resource: webdriver-3-1753638246259
+2025-07-27 23:14:19,473 [ResourceManager-ShutdownHook] INFO  novus.config.resource_manager.EnterpriseResourceManager - All resources released successfully
+2025-07-27 23:34:01,400 [main] DEBUG org.testng.TestNG - suiteXmlPath: "C:\Users\PRATHA~1\AppData\Local\Temp\testng-eclipse-1565152893\testng-customsuite.xml"
+2025-07-27 23:34:02,682 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:34:02,687 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 2 ms.
+2025-07-27 23:34:02,690 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:34:02,690 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:34:02,691 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:34:02,691 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:34:02,692 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:34:02,692 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:34:02,700 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 5 ms.
+2025-07-27 23:34:02,720 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 19 ms.
+2025-07-27 23:34:02,722 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:34:02,723 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:34:02,724 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:34:02,724 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:34:02,725 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:34:02,725 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:34:02,728 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:34:02,728 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:34:02,729 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:34:02,730 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2025-07-27 23:34:02,735 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:34:02,735 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:34:02,735 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:34:02,735 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:34:02,737 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2025-07-27 23:34:02,737 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:34:02,739 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:34:02,740 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:34:02,740 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2025-07-27 23:34:02,740 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2025-07-27 23:34:02,759 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\Prathamesh\AppData\Local\Temp\testng-eclipse-1565152893\testng-customsuite.xml
+
+2025-07-27 23:34:02,816 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 11 ms.
+2025-07-27 23:34:02,905 [main] INFO  novus.config.integration.TestNG - Setting up test class...
+2025-07-27 23:34:02,937 [main] INFO  novus.config.main_configuration.EnterpriseConfigurationManager - Initializing Enterprise Configuration Manager...
+2025-07-27 23:34:03,432 [main] DEBUG novus.config.resource_manager.EnterpriseResourceManager - Resource monitoring started
+2025-07-27 23:34:03,432 [main] INFO  novus.config.resource_manager.EnterpriseResourceManager - Enterprise Resource Manager initialized
+2025-07-27 23:34:03,433 [main] DEBUG novus.config.resource_manager.EnterpriseResourceManager - Shutdown hook registered
+2025-07-27 23:34:03,433 [main] DEBUG novus.config.main_configuration.EnterpriseConfigurationManager - Loading configuration files...
+2025-07-27 23:34:03,504 [main] DEBUG novus.config.config_loader.DefaultConfigurationLoader - Configuration validation passed
+2025-07-27 23:34:03,504 [main] DEBUG novus.config.config_loader.DefaultConfigurationLoader - Successfully loaded and cached configuration: config/web.json
+2025-07-27 23:34:03,506 [main] DEBUG novus.config.config_loader.DefaultConfigurationLoader - Configuration validation passed
+2025-07-27 23:34:03,506 [main] DEBUG novus.config.config_loader.DefaultConfigurationLoader - Successfully loaded and cached configuration: config/run_config.json
+2025-07-27 23:34:03,508 [main] DEBUG novus.config.config_loader.DefaultConfigurationLoader - Configuration validation passed
+2025-07-27 23:34:03,509 [main] DEBUG novus.config.config_loader.DefaultConfigurationLoader - Successfully loaded and cached configuration: config/application.json
+2025-07-27 23:34:03,509 [main] INFO  novus.config.main_configuration.EnterpriseConfigurationManager - All configurations loaded successfully
+2025-07-27 23:34:03,513 [main] DEBUG novus.config.config_loader.ConfigurationPropertiesProvider - Using configuration value for run.grid.hubHost: localhost
+2025-07-27 23:34:03,513 [main] WARN  novus.config.webdriver_factory.EnhancedWebDriverFactory - Using default config helper - ConfigurationPropertiesProvider should be injected
+2025-07-27 23:34:03,523 [main] INFO  novus.config.webdriver_factory.EnhancedWebDriverFactory - Initialized 4 browser factories: [edge, chrome, safari, firefox]
+2025-07-27 23:34:03,527 [main] INFO  novus.config.health_checker.ComprehensiveHealthChecker - Health checker initialized - Network: true, Disk: true, Memory: true
+2025-07-27 23:34:03,527 [main] DEBUG novus.config.health_checker.ComprehensiveHealthChecker - Starting comprehensive health check...
+2025-07-27 23:34:03,583 [main] INFO  novus.config.health_checker.ComprehensiveHealthChecker - Health check completed in 53ms - Status: HEALTHY
+2025-07-27 23:34:03,583 [main] DEBUG novus.config.main_configuration.EnterpriseConfigurationManager - Runtime metrics initialized
+2025-07-27 23:34:03,583 [main] INFO  novus.config.main_configuration.EnterpriseConfigurationManager - Enterprise Configuration Manager initialized successfully in 647ms
+2025-07-27 23:34:03,583 [main] DEBUG novus.config.health_checker.ComprehensiveHealthChecker - Starting comprehensive health check...
+2025-07-27 23:34:03,602 [main] INFO  novus.config.health_checker.ComprehensiveHealthChecker - Health check completed in 19ms - Status: HEALTHY
+2025-07-27 23:34:03,603 [main] INFO  novus.config.integration.TestNG - Test class setup completed
+2025-07-27 23:34:03,649 [main] INFO  novus.config.integration.TestNG - Setting up test method...
+2025-07-27 23:34:03,659 [main] DEBUG novus.config.config_loader.ConfigurationPropertiesProvider - Using configuration value for run.browser: chrome
+2025-07-27 23:34:03,659 [main] DEBUG novus.config.config_loader.ConfigurationPropertiesProvider - Using configuration value for run.mobileDevice: 
+2025-07-27 23:34:03,660 [main] INFO  novus.config.webdriver_factory.EnhancedWebDriverFactory - Creating chrome driver - Remote: false, Headless: false, Mobile: 
+2025-07-27 23:34:03,675 [main] ERROR novus.config.browser_option.ChromeOptionsBuilder - Error building Chrome options for defaultOptions: Cannot invoke "novus.config.browser_option.BrowserConfigHelper.getBrowserArguments(String, String)" because "this.configHelper" is null
+java.lang.NullPointerException: Cannot invoke "novus.config.browser_option.BrowserConfigHelper.getBrowserArguments(String, String)" because "this.configHelper" is null
+	at novus.config.browser_option.ChromeOptionsBuilder.build(ChromeOptionsBuilder.java:34) [test-classes/:?]
+	at novus.config.webdriver_factory.ChromeDriverFactory.createLocalDriver(ChromeDriverFactory.java:24) [test-classes/:?]
+	at novus.config.webdriver_factory.AbstractBrowserFactory.createDriver(EnhancedWebDriverFactory.java:170) [test-classes/:?]
+	at novus.config.webdriver_factory.EnhancedWebDriverFactory.createDriver(EnhancedWebDriverFactory.java:60) [test-classes/:?]
+	at novus.config.main_configuration.EnterpriseConfigurationManager.createDriver(EnterpriseConfigurationManager.java:166) [test-classes/:?]
+	at novus.config.main_configuration.EnterpriseConfigurationManager.createDriver(EnterpriseConfigurationManager.java:155) [test-classes/:?]
+	at novus.config.integration.TestNG.setUp(TestNG.java:43) [test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:565) ~[?:?]
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:836) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:601) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1604) [?:?]
+	at org.testng.TestRunner.privateRun(TestRunner.java:741) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.TestRunner.run(TestRunner.java:616) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.TestNG.runSuites(TestNG.java:1112) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.TestNG.run(TestNG.java:1079) [org.testng_7.11.0.r202503091654.jar:7.11.0]
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115) [testng-remote.jar:?]
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293) [testng-remote.jar:?]
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91) [testng-remote.jar:?]
+2025-07-27 23:34:06,250 [main] DEBUG novus.config.webdriver_factory.EnhancedWebDriverFactory - Configuring driver settings...
+2025-07-27 23:34:06,368 [main] DEBUG novus.config.webdriver_factory.EnhancedWebDriverFactory - Driver configuration completed
+2025-07-27 23:34:06,369 [main] INFO  novus.config.webdriver_factory.EnhancedWebDriverFactory - Driver created successfully in 2709ms for thread: 3
+2025-07-27 23:34:06,377 [main] DEBUG novus.config.resource_manager.EnterpriseResourceManager - Registered resource: webdriver-3-1753639446370 (type: EnterpriseConfigurationManager$$Lambda/0x0000029f073948c8)
+2025-07-27 23:34:06,377 [main] INFO  novus.config.main_configuration.EnterpriseConfigurationManager - WebDriver created successfully in 2728ms for thread: 3
+2025-07-27 23:34:06,377 [main] DEBUG novus.config.config_loader.ConfigurationPropertiesProvider - Using configuration value for run.environment: local
+2025-07-27 23:34:07,162 [main] INFO  novus.config.integration.TestNG - Test method setup completed
+2025-07-27 23:34:07,468 [main] INFO  pom.pages1.Login_Page1 - Validating Login Page load...
+2025-07-27 23:34:07,506 [main] INFO  pom.pages1.Login_Page1 - Login Page validated successfully - Title: 'Hands-On Selenium WebDriver with Java', URL: 'https://bonigarcia.dev/selenium-webdriver-java/login-form.html'
+2025-07-27 23:34:07,506 [main] INFO  pom.pages1.Login_Page1 - Login_Page1 initialized
+2025-07-27 23:34:07,506 [main] INFO  pom.pages1.Login_Page1 - Attempting login with username: user
+2025-07-27 23:34:07,506 [main] DEBUG pom.pages1.Login_Page1 - Entering username: user
+2025-07-27 23:34:07,742 [main] DEBUG pom.pages1.Login_Page1 - Username entered successfully
+2025-07-27 23:34:07,742 [main] DEBUG pom.pages1.Login_Page1 - Entering password
+2025-07-27 23:34:07,911 [main] DEBUG pom.pages1.Login_Page1 - Password entered successfully
+2025-07-27 23:34:07,912 [main] DEBUG pom.pages1.Login_Page1 - Clicking submit button
+2025-07-27 23:34:08,089 [main] DEBUG pom.pages1.Login_Page1 - Submit button clicked successfully
+2025-07-27 23:34:18,582 [main] DEBUG pom.pages1.Login_Page1 - Login success check - Success message visible: true
+2025-07-27 23:34:18,582 [main] INFO  pom.pages1.Login_Page1 - Login successful for user: user in 994ms
+2025-07-27 23:34:18,585 [main] DEBUG result.LoginResult - Creating successful login result for user: user, execution time: 994ms
+2025-07-27 23:34:18,585 [main] DEBUG result.LoginResult - Returning HomePage for successful login of user: user
+2025-07-27 23:34:18,588 [main] INFO  pom.pages1.Home_Page1 - Validating Home Page load...
+2025-07-27 23:34:18,642 [main] INFO  pom.pages1.Home_Page1 - Home Page validated successfully - Title: 'Hands-On Selenium WebDriver with Java', URL: 'https://bonigarcia.dev/selenium-webdriver-java/login-sucess.html?username=user&password=user'
+2025-07-27 23:34:18,642 [main] INFO  pom.pages1.Home_Page1 - Home_Page1 initialized
+2025-07-27 23:34:18,642 [main] INFO  pom.pages1.Home_Page1 - Fetching success message
+2025-07-27 23:34:18,768 [main] INFO  novus.config.integration.TestNG - Tearing down test method...
+2025-07-27 23:34:18,769 [main] DEBUG novus.config.config_loader.ConfigurationPropertiesProvider - Using configuration value for run.screenshots.screenshotPath: ./test-output/screenshots
+2025-07-27 23:34:18,769 [main] INFO  novus.config.integration.TestNG - Screenshot would be taken to: ./test-output/screenshots
+2025-07-27 23:34:18,769 [main] INFO  novus.config.resource_manager.EnterpriseResourceManager - Cleaning up all resources of type: WebDriver
+2025-07-27 23:34:18,773 [main] INFO  novus.config.main_configuration.EnterpriseConfigurationManager - WebDriver cleanup completed for thread: 3
+2025-07-27 23:34:18,773 [main] INFO  novus.config.integration.TestNG - Test method teardown completed
+2025-07-27 23:34:18,786 [main] INFO  novus.config.integration.TestNG - Tearing down test class...
+2025-07-27 23:34:18,787 [main] INFO  novus.config.resource_manager.EnterpriseResourceManager - Cleaning up all resources of type: WebDriver
+2025-07-27 23:34:18,787 [main] INFO  novus.config.main_configuration.EnterpriseConfigurationManager - All WebDrivers cleaned up successfully
+2025-07-27 23:34:18,787 [main] INFO  novus.config.integration.TestNG - Test class teardown completed
+2025-07-27 23:34:18,994 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.jq.Main@3b576ee3: 113 ms
+2025-07-27 23:34:18,996 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.FailedReporter@65b5b5ed: 2 ms
+2025-07-27 23:34:19,023 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.XMLReporter@1987807b: 27 ms
+2025-07-27 23:34:19,038 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@58068b40: 15 ms
+2025-07-27 23:34:19,050 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@74a1d60e: 12 ms
+2025-07-27 23:34:19,050 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@16c0be3b: 0 ms
+2025-07-27 23:34:19,054 [ResourceManager-ShutdownHook] INFO  novus.config.resource_manager.EnterpriseResourceManager - Resource Manager shutdown hook executing...
+2025-07-27 23:34:19,054 [ResourceManager-ShutdownHook] INFO  novus.config.resource_manager.EnterpriseResourceManager - Releasing 1 resources...
+2025-07-27 23:34:19,056 [ResourceManager-ShutdownHook] DEBUG novus.config.resource_manager.EnterpriseResourceManager - Closing EnterpriseConfigurationManager$$Lambda/0x0000029f073948c8 resource: webdriver-3-1753639446370
+2025-07-27 23:34:20,022 [ResourceManager-ShutdownHook] INFO  novus.config.resource_manager.EnterpriseResourceManager - All resources released successfully

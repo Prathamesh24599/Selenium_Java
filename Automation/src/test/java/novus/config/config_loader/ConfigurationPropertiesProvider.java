@@ -76,7 +76,7 @@ public class ConfigurationPropertiesProvider{
     /**
      * Get configuration node by path
      */
-    private JsonNode getConfigNode(String configPath) {
+    public JsonNode getConfigNode(String configPath) {
         String[] pathParts = configPath.split("\\.");
         JsonNode currentNode = null;
         
@@ -149,73 +149,5 @@ public class ConfigurationPropertiesProvider{
                               .asBoolean(false);
     }
     
-//    @Override
-//    public String getBrowserName() {
-//        return getStringProperty("browser", "run.browser", "chrome");
-//    }
-//
-//    @Override
-//    public String getEnvironment() {
-//        return getStringProperty("environment", "run.environment", "staging");
-//    }
-//
-//    @Override
-//    public String getBaseUrl() {
-//        String environment = getEnvironment();
-//        String baseUrl = getEnvironmentProperty(environment, "baseUrl", "");
-//        
-//        if (baseUrl.isEmpty()) {
-//            throw new ConfigurationException("Base URL not configured for environment: " + environment);
-//        }
-//        
-//        return baseUrl;
-//    }
-//
-//    @Override
-//    public boolean isRemoteExecution() {
-//        return getBooleanProperty("remote.execution", "run.grid.remoteExecution", false);
-//    }
-//
-//    @Override
-//    public boolean isHeadlessMode() {
-//        return getBooleanProperty("headless", "run.headless", false);
-//    }
-//
-//    @Override
-//    public String getMobileDevice() {
-//        return getStringProperty("mobile.device", "run.mobileDevice", "");
-//    }
-//
-//    @Override
-//    public int getThreadCount() {
-//        return getIntProperty("thread.count", "run.execution.threadCount", 4);
-//    }
-//
-//    @Override
-//    public TimeoutConfiguration getTimeouts() {
-//        return new TimeoutConfiguration.Builder()
-//                .implicitTimeout(getIntProperty("timeout.implicit", "web.timeouts.implicit", 10))
-//                .pageLoadTimeout(getIntProperty("timeout.pageLoad", "web.timeouts.pageLoad", 30))
-//                .scriptTimeout(getIntProperty("timeout.script", "web.timeouts.script", 20))
-//                .pollingInterval(getIntProperty("timeout.polling", "web.timeouts.pollingInterval", 500))
-//                .build();
-//    }
-//
-//    @Override
-//    public ProxyConfiguration getProxy() {
-//        boolean enabled = getBooleanProperty("proxy.enabled", "web.proxy.enabled", false);
-//        
-//        if (!enabled) {
-//            return ProxyConfiguration.createDisabled();
-//        }
-//        
-//        return new ProxyConfiguration.Builder()
-//                .enabled(true)
-//                .httpProxy(getStringProperty("proxy.http", "web.proxy.httpProxy", ""))
-//                .sslProxy(getStringProperty("proxy.ssl", "web.proxy.sslProxy", ""))
-//                .ftpProxy(getStringProperty("proxy.ftp", "web.proxy.ftpProxy", ""))
-//                .noProxy(getStringProperty("proxy.no", "web.proxy.noProxy", ""))
-//                .proxyType(getStringProperty("proxy.type", "web.proxy.type", "MANUAL"))
-//                .build();
-//    }
+
 }

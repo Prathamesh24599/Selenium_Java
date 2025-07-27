@@ -2,29 +2,29 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-27T15:34:15 IST" name="Default suite" finished-at="2025-07-27T15:35:08 IST" duration-ms="52411">
+  <suite started-at="2025-07-27T23:34:02 IST" name="Default suite" finished-at="2025-07-27T23:34:18 IST" duration-ms="16014">
     <groups>
       <group name="regression">
-        <method signature="TestNG.testSuccessfulLogin(java.lang.String,java.lang.String)[pri:1, instance:novus.config.integration.TestNG@2a2dc0a]" name="testSuccessfulLogin" class="novus.config.integration.TestNG"/>
+        <method signature="TestNG.testSuccessfulLogin(java.lang.String,java.lang.String)[pri:1, instance:novus.config.integration.TestNG@5856dbe4]" name="testSuccessfulLogin" class="novus.config.integration.TestNG"/>
       </group> <!-- regression -->
       <group name="smoke">
-        <method signature="TestNG.testSuccessfulLogin(java.lang.String,java.lang.String)[pri:1, instance:novus.config.integration.TestNG@2a2dc0a]" name="testSuccessfulLogin" class="novus.config.integration.TestNG"/>
+        <method signature="TestNG.testSuccessfulLogin(java.lang.String,java.lang.String)[pri:1, instance:novus.config.integration.TestNG@5856dbe4]" name="testSuccessfulLogin" class="novus.config.integration.TestNG"/>
       </group> <!-- smoke -->
       <group name="positive">
-        <method signature="TestNG.testSuccessfulLogin(java.lang.String,java.lang.String)[pri:1, instance:novus.config.integration.TestNG@2a2dc0a]" name="testSuccessfulLogin" class="novus.config.integration.TestNG"/>
+        <method signature="TestNG.testSuccessfulLogin(java.lang.String,java.lang.String)[pri:1, instance:novus.config.integration.TestNG@5856dbe4]" name="testSuccessfulLogin" class="novus.config.integration.TestNG"/>
       </group> <!-- positive -->
     </groups>
-    <test started-at="2025-07-27T15:34:15 IST" name="Default test" finished-at="2025-07-27T15:35:08 IST" duration-ms="52411">
+    <test started-at="2025-07-27T23:34:02 IST" name="Default test" finished-at="2025-07-27T23:34:18 IST" duration-ms="16014">
       <class name="novus.config.integration.TestNG">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:novus.config.integration.TestNG@2a2dc0a]" started-at="2025-07-27T15:34:15 IST" name="setUpClass" finished-at="2025-07-27T15:34:16 IST" duration-ms="703" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:novus.config.integration.TestNG@5856dbe4]" started-at="2025-07-27T23:34:02 IST" name="setUpClass" finished-at="2025-07-27T23:34:03 IST" duration-ms="756" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:novus.config.integration.TestNG@2a2dc0a]" started-at="2025-07-27T15:34:16 IST" name="setUp" finished-at="2025-07-27T15:34:56 IST" duration-ms="40275" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:novus.config.integration.TestNG@5856dbe4]" started-at="2025-07-27T23:34:03 IST" name="setUp" finished-at="2025-07-27T23:34:07 IST" duration-ms="3515" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testSuccessfulLogin(java.lang.String,java.lang.String)[pri:1, instance:novus.config.integration.TestNG@2a2dc0a]" started-at="2025-07-27T15:34:56 IST" name="testSuccessfulLogin" description="Test successful login with valid credentials" data-provider="validLoginData" finished-at="2025-07-27T15:35:08 IST" duration-ms="11112" status="PASS">
+        <test-method signature="testSuccessfulLogin(java.lang.String,java.lang.String)[pri:1, instance:novus.config.integration.TestNG@5856dbe4]" started-at="2025-07-27T23:34:07 IST" name="testSuccessfulLogin" description="Test successful login with valid credentials" data-provider="validLoginData" finished-at="2025-07-27T23:34:18 IST" duration-ms="11343" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -40,11 +40,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSuccessfulLogin -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:novus.config.integration.TestNG@2a2dc0a]" started-at="2025-07-27T15:35:08 IST" name="tearDown" finished-at="2025-07-27T15:35:08 IST" duration-ms="5" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:novus.config.integration.TestNG@5856dbe4]" started-at="2025-07-27T23:34:18 IST" name="tearDown" finished-at="2025-07-27T23:34:18 IST" duration-ms="8" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:novus.config.integration.TestNG@2a2dc0a]" started-at="2025-07-27T15:35:08 IST" name="tearDownClass" finished-at="2025-07-27T15:35:08 IST" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:novus.config.integration.TestNG@5856dbe4]" started-at="2025-07-27T23:34:18 IST" name="tearDownClass" finished-at="2025-07-27T23:34:18 IST" duration-ms="4" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

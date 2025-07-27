@@ -1,1 +1,0 @@
-package novus.config.browser_option;
